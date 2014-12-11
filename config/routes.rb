@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :characters
+    post 'characters/roll-abilities' => 'character#roll_abilities', as: :character_roll_abilities
   resources :ability_scores
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

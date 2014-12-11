@@ -38,3 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Front-End Gems
+gem 'susy'
+gem 'compass'
+gem 'breakpoint'

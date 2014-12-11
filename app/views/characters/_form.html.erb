@@ -11,8 +11,8 @@
  <%= character_builder.fields_for :ability_scores do |ability_score_builder| %>
  <br />
     <%= ability_score_builder.hidden_field(:ability_id, value: ability_score_builder.object.ability.id) %>
-    <%= ability_score_builder.number_field(:level_score) %> /
-    <%= ability_score_builder.number_field(:experience_score)%>
+    <%= ability_score_builder.number_field(:level_score, min: 0, max: 999) %> /
+    <%= ability_score_builder.number_field(:experience_score, min: 0, max: 999) %>
 
     <%= ability_score_builder.label(:level_score, "#{ability_score_builder.object.ability.name}") %>
   <% end%>
@@ -21,3 +21,5 @@
   <%= character_builder.submit "Create Character" %>
 
 <% end %>
+
+<%= button_to "Roll", character_roll_abilities_path, class: "dice-btn" %>
