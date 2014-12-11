@@ -1,0 +1,9 @@
+<h2>Name: <%= @character.name %></h2>
+
+<h4>Race: <%= @character.race.name %></h4>
+<p><%= @character.race.description %></p>
+
+<%@character.ability_scores.each do |ability_score|%>
+  <p><%= ability_score.ability.name %></p>
+  <p><%= ability_score.level_score %>/ <%= ability_score.experience_score %></p>
+<% end %>

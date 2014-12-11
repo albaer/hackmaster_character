@@ -1,0 +1,23 @@
+<%= form_for @character do |character_builder| %>
+  
+  <%= character_builder.text_field :name %> <br />
+
+  <%= character_builder.fields_for :character_race_association do |race_assoc_builder| %>
+
+    <%= race_assoc_builder.select(:race_id, Race.all.map {|race| [race.name, race.id]} ) %>
+
+  <% end%> <br />
+
+ <%= character_builder.fields_for :ability_scores do |ability_score_builder| %>
+ <br />
+    <%= ability_score_builder.hidden_field(:ability_id, value: ability_score_builder.object.ability.id) %>
+    <%= ability_score_builder.number_field(:level_score) %> /
+    <%= ability_score_builder.number_field(:experience_score)%>
+
+    <%= ability_score_builder.label(:level_score, "#{ability_score_builder.object.ability.name}") %>
+  <% end%>
+
+<br />
+  <%= character_builder.submit "Create Character" %>
+
+<% end %>
